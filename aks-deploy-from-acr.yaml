@@ -19,6 +19,19 @@ spec:
           imagePullPolicy: Always
           ports:
           - containerPort: 8085
+          volumeMounts:
+            - name: test-vol
+              mountPath: "/etc/non-sensitive-data"
+              readOnly: true
+      volumes:
+        - name: test-vol
+          configMap:
+            name: nginx-configmap-vol
+            items:
+              - key: file-1.txt
+                path: file-a.txt
+              - key: file-2.txt
+                path: file-b.txt
         
 ---
 apiVersion: v1
