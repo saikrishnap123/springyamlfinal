@@ -23,7 +23,7 @@ steps:
 - task: Docker@2
   inputs:
     containerRegistry: 'dockersvc'
-    repository: 'springboot-sai1'
+    repository: 'springboot-sai2'
     command: 'buildAndPush'
     Dockerfile: '**/Dockerfile'
 - task: CopyFiles@2
@@ -35,24 +35,4 @@ steps:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     ArtifactName: 'drop'
     publishLocation: 'Container'
-- task: replacetokens@5
-  inputs:
-    targetFiles: 'aks-deploy-from-acr.yaml'
-    encoding: 'auto'
-    tokenPattern: 'default'
-    writeBOM: true
-    actionOnMissing: 'warn'
-    keepToken: false
-    actionOnNoFiles: 'continue'
-    enableTransforms: false
-    enableRecursion: false
-    useLegacyPattern: false
-    enableTelemetry: true
-- task: Kubernetes@1
-  inputs:
-    connectionType: 'Kubernetes Service Connection'
-    kubernetesServiceEndpoint: 'kubesvc'
-    namespace: 'default'
-    command: 'apply'
-    secretType: 'dockerRegistry'
-    containerRegistryType: 'Azure Container Registry'
+
