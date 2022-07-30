@@ -22,13 +22,13 @@ steps:
     goals: 'package'
 - task: Docker@2
   inputs:
-    containerRegistry: 'svc1'
+    containerRegistry: 'saisvc'
     repository: 'myspring'
     command: 'build'
     Dockerfile: '**/Dockerfile'
 - task: Docker@2
   inputs:
-    containerRegistry: 'svc1'
+    containerRegistry: 'saisvc'
     repository: 'myspring'
     command: 'push'
 - task: CopyFiles@2
