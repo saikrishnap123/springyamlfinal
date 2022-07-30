@@ -23,11 +23,15 @@ steps:
     enableRecursion: false
     useLegacyPattern: false
     enableTelemetry: true
-- task: Kubernetes@1
+steps:
+- task: Kubernetes@0
+  displayName: 'kubectl apply'
   inputs:
-    connectionType: 'Kubernetes Service Connection'
-    kubernetesServiceEndpoint: 'kubesvc'
-    namespace: 'default'
-    command: 'create'
-    secretType: 'dockerRegistry'
-    containerRegistryType: 'Azure Container Registry'
+    kubernetesServiceConnection: kubesvc
+    namespace: default
+    command: apply
+    useConfigurationFile: true
+    configuration: '$(System.DefaultWorkingDirectory)/_pipelinespring-boot-sai/drop/aks-deploy-from-acr.yaml'
+    configMapName: volume
+    useConfigMapFile: true
+    configMapFile: '$(System.DefaultWorkingDirectory)/_pipelinespring-boot-sai/drop/aks-deploy-from-acr.yaml'
