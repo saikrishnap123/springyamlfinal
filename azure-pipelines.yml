@@ -1,6 +1,8 @@
+trigger:
+- main
+
 pool:
-  name: Azure Pipelines
-  demands: maven
+  vmImage: ubuntu-latest
 
 steps:
 - task: Maven@3
