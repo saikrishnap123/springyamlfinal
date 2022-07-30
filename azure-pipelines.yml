@@ -23,7 +23,7 @@ steps:
     enableRecursion: false
     useLegacyPattern: false
     enableTelemetry: true
-steps:
+
 - task: Kubernetes@0
   displayName: 'kubectl apply'
   inputs:
