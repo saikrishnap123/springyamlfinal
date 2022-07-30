@@ -28,6 +28,6 @@ steps:
     connectionType: 'Kubernetes Service Connection'
     kubernetesServiceEndpoint: 'kubesvc'
     namespace: 'default'
-    command: 'apply'
+    command: 'create'
     secretType: 'dockerRegistry'
     containerRegistryType: 'Azure Container Registry'
