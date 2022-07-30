@@ -37,7 +37,6 @@ steps:
     publishLocation: 'Container'
 - task: replacetokens@5
   inputs:
-    rootDirectory: '$(System.DefaultWorkingDirectory)/_pipelinespring-boot-sai/drop'
     targetFiles: 'aks-deploy-from-acr.yaml'
     encoding: 'auto'
     tokenPattern: 'default'
